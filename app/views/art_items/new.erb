@@ -1,0 +1,24 @@
+<h1>Add an Art Supply</h1>
+<% if @artitem.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @artitem.errors.count %> error(s) prohibited this item from being saved:</h2>
+ 
+    <ul>
+    <% @artitem.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<form method="post" action="/artitems">
+  <p>
+    <div><label for="name">Art Item:</label></div>
+    <input type="text" name="artitems[name]" id="name" value="<%= @artitem.name %>" required>
+  </p>
+  <p>
+    <div><label for="description">Description:</label></div>
+    <textarea rows="10" cols="40" type="text" name="artitems[description]" id="description" required><%= @artitem.description %></textarea>
+  </p>
+  <input type="submit" value="Add Item">
+
+</form>
