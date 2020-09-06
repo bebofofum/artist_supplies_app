@@ -10,12 +10,21 @@ class ApplicationController < Sinatra::Base
     set :method_override, true
   end
 
-  
+  get '/' do
+    erb :index
+  end
+
+  delete '/logout' do 
+    session.clear
+    redirect "/"
+  end
+
+
 
   private 
 
   def current_user 
-    User.find_by_id(session[:id])
+    User.find_by_id(session[:user_id])
   end
 
   def logged_in?
