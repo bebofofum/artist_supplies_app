@@ -13,12 +13,12 @@
 <form method="post" action="/artitems">
   <p>
     <div><label for="name">Art Item:</label></div>
-    <input type="text" name="artitems[name]" id="name" value="<%= @artitem.name %>" required>
+    <input type="text" name="artitems[name]" id="name" value="<%= @artitem.name %>" required />
   </p>
   <p>
     <div><label for="description">Description:</label></div>
     <textarea rows="10" cols="40" type="text" name="artitems[description]" id="description" required><%= @artitem.description %></textarea>
   </p>
-  <input type="submit" value="Add Item">
+  <input type="submit" value="Add Item" />
 
 </form>
