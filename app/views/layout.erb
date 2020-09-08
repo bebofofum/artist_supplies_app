@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <title>My Art Supply Tracker</title>
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
   </head>
@@ -13,23 +14,26 @@
     <div class="container">
     <nav>
       <% if !logged_in? %>
-        <a href="/users/login">Log In</a>
-        <a href="/users/new">Sign Up</a>
+        <a href="/users/login"><button class="pure-button">Log In</button></a>
+        <a href="/users/new"><button class="pure-button">Sign Up</button></a>
         <% else %>
-          <a href="/artitems/new">Add Item</a>
+          <a href="/artitems/new"><button class="pure-button">Add Item</button></a>
           <form action="/logout" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Log Out">
           </form>
         <% end %>
     </nav>
-      <div class="main_header">Art Media Tracker!</div>
-    </div>
+      <div class="main_header">The Art Bin</div>
+      <div class="sub_header">Your Art Supply Tracker</div>
+
+    
+    <%= styled_flash %>
 
     <%= yield %>
 
-    
 
+    </div>
 
   </body>
 </html>
