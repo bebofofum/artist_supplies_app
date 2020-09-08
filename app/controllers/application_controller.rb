@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     set :sessions, true
     set :session_secret, ENV["SESSION_SECRET"]
     set :method_override, true
+    register Sinatra::Flash
   end
 
   get '/' do
@@ -19,7 +20,10 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
 
-
+  error ActiveRecord::RecordNotFound do
+    flash[:error] = "Couldn't find that record."
+    redirect "/artitems"
+  end
 
   private 
 
@@ -30,5 +34,14 @@ class ApplicationController < Sinatra::Base
   def logged_in?
     !!current_user
   end
+
+  def redirect_if_not_logged_in
+    if !logged_in?
+      flash[:error] = "You must be logged in to view that page"
+      redirect request.referrer || "/users/login"
+    end
+  end
+
+
 
 end
