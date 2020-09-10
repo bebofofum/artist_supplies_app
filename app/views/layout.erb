@@ -17,14 +17,17 @@
         <a href="/users/login"><button class="pure-button">Log In</button></a>
         <a href="/users/new"><button class="pure-button">Sign Up</button></a>
         <% else %>
-          <a href="/artitems/new"><button class="pure-button">Add Item</button></a>
-          <form action="/logout" method="post">
+          <div>
+          <a href="/artitems"><button>Items</button></a>
+          <a href="/artitems/new"><button>Add Item</button></a>
+          <form action="/logout" method="post" style="display: inline-block;">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="Log Out">
+            <input class="submit_btn" type="submit" value="Log Out">
           </form>
+          </div>
         <% end %>
     </nav>
-      <div class="main_header">The Art Bin</div>
+      <div class="main_header">Art Bin</div>
       <div class="sub_header">Your Art Supply Tracker</div>
 
     
