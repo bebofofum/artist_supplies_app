@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/show"
     else
-      erb :'users/create_user'
+      erb :'users/new'
     end
 
   end
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     @user = User.find_by_email(params[:email])
+  
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
