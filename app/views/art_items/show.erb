@@ -1,11 +1,12 @@
-  <h1>This is the Art Item model details page</h1>
+  <h1>The Devil is in the Details</h1>
   
-  <h3><%= @art_items.name %></h3>
-  <div>Description: <%= @art_items.description %></div><br>
+  <div class="detail_strong"><%= @art_items.name %></div>
+  <h3>Description:</h3>
+  <p><%= @art_items.description %></p><br>
   <div>
     <a href="/artitems/<%= @art_items.id %>/edit"><button>Edit</button></a> 
     <form method="post" action="/artitems/<%= @art_items.id %>" style="display: inline-block;">
         <input type="hidden" name="_method" value="delete" />
-        <input type="submit" value="Delete" />
+        <input class="submit_btn" type="submit" value="Delete" />
     </form>
-    </div>
+  </div>
