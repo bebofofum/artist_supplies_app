@@ -1,9 +1,18 @@
-  <h1>This is the Art Item model listing page</h1>
-  
-  <div><% @art_items.each do |item| %>
-    <h3>Art Item: <a href="/artitems/<%= item.id %>"><%= item.name %></a></h3>
-    <% end %>
+
+  <div>
+    <% if no_items %>
+      <div><h3>No items added yet. Click Add Items above to starting listing them here!</h3></div>
+    <% else %>
+      <h1>Feast your eyes on this art loot!</h1>
+
+      <div><% @art_items.each do |item| %>
+        <div class="item_blk_color">Art Item: <a href="/artitems/<%= item.id %>"><%= item.name %></a></div>
+        <% end %>
+      </div>
+  <% end %>
+
   </div>
+
 
 
   
