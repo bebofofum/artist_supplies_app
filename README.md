@@ -1,13 +1,26 @@
 ## Project Name: ## 
 The Art Bin
 
-## Project Description: The Art Bin ## 
+## Project Description: ## 
+A simple art supply content manager. Art Items can be added, and a list neatly displayed of all your art supplies. The item's details can be viewed with an editable description of what the item is or deleted entirely depending on whether or not the item has been used up. 
 
-## Project Install Instructions: The Art Bin ## 
+## Project Install Instructions: ## 
+1. Clone the repo.
+2. In terminal, type cd 'art_supplies_app'
+3. Run 'bundle install' to ensure all dependencies are installed. 
+4. Generate a new SESSION_SECRET by running 'generate_secret' in Terminal.
+5. Copy the output and paste it into the .env file after the '='
+6. Run 'rake db:migrate' in Terminal to run migrations for creating the User and ArtItem database tables.
+7. Run 'Shotgun' in Terminal to start the server.
+8. In your browser open a new window and enter 'localhost:' followed by the server address shown by Shotgun, the last 4 digits after the colon. 
+   (For example 'Listening on 127.0.0.1:9393' would use 9393, as in localhost:9393)
 
-## Project Contributors: The Art Bin ## 
+
+## Project Contributors: The Art Bin ##
+
 
 ## Project License: The Art Bin ## 
+MIT License
 
 
 
