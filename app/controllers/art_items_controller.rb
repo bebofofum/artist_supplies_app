@@ -1,22 +1,21 @@
 class ArtItemsController < ApplicationController
 
   get '/artitems' do
-    # binding.pry
     @art_items = ArtItem.where(author_id:(current_user.id))
     erb :'/art_items/index'
   end
 
   # --- CREATE route ---
   get '/artitems/new' do
-    redirect_if_not_authorized
     @artitem = ArtItem.new
+    redirect_if_not_logged_in
     erb :'/art_items/new'
   end
 
   post '/artitems' do
-    redirect_if_not_authorized
     # binding.pry
     @artitem = current_user.art_items.build(name: params[:artitems][:name], description: params[:artitems][:description])
+    redirect_if_not_authorized
 
     if @artitem.save
       redirect "/artitems"
@@ -66,8 +65,8 @@ class ArtItemsController < ApplicationController
 
   private
 
-  def authorize_item(item)
-    current_user == item.author
+  def authorize_item(artitem)
+    current_user == artitem.author
   end
 
   def redirect_if_not_authorized
@@ -76,6 +75,10 @@ class ArtItemsController < ApplicationController
       flash[:error] = "You don't have permission to do that action"
       redirect "/users/login"
     end
+  end
+
+  def no_items 
+    @art_items.length == 0
   end
 
 
