@@ -11,7 +11,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/show"
     else
-      erb :'users/new'
+      flash[:error] = "You need to enter an email or password"
+      redirect '/users/new'
     end
 
   end
@@ -28,7 +29,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/show"
     else
-      erb :'users/login'
+      flash[:error] = "Email and/or password is incorrect."
+      redirect '/users/login'
     end
 
   end
