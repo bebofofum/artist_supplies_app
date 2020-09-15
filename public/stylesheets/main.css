@@ -36,7 +36,6 @@ input[type="username"],input[type="email"],input[type="password"]{
 	background-color:#5d9cec;
 	border-color:#5899eb;
 	text-align:center;
-	vertical-align:middle;
 	cursor:pointer; 
 	border:1px solid transparent; 
 	padding:6px 16px; 
