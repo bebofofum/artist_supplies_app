@@ -13,8 +13,8 @@ class ArtItemsController < ApplicationController
   end
 
   post '/artitems' do
-    # binding.pry
     @artitem = current_user.art_items.build(name: params[:artitems][:name], description: params[:artitems][:description])
+
     redirect_if_not_authorized
 
     if @artitem.save
